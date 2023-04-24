@@ -1,0 +1,3 @@
+Average waiting time:130.55
+Average service time:6.094
+Peek hour: 100 existand 705 clienti

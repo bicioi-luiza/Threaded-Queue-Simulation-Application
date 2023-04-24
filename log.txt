@@ -1,0 +1,3 @@
+Average waiting time:0.16
+Average service time:2.5
+Peek hour: 27 existand 2 clienti
