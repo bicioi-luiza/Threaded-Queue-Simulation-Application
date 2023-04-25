@@ -197,7 +197,7 @@ public class InterfataCozi {
                         JOptionPane.showMessageDialog(null, "Ati introdus gresit min service time");
 
                     int maxSTime = checkIfNotInt(txtMaxST.getText());
-                    if (maxSTime == 2147483647 || maxSTime >= limitTime)
+                    if (maxSTime == 2147483647 || maxSTime >= limitTime || maxSTime <= minSTime)
                         JOptionPane.showMessageDialog(null, "Ati introdus gresit max service time");
 
                     int minATime = checkIfNotInt(txtMinAT.getText()); System.out.println(minATime);
@@ -205,13 +205,15 @@ public class InterfataCozi {
                         JOptionPane.showMessageDialog(null, "Ati introdus gresit min arrival time");
 
                     int maxATime = checkIfNotInt(txtMaxAT.getText());
-                    if (maxATime == 2147483647 || maxATime >= limitTime)
+                    if (maxATime == 2147483647 || maxATime >= limitTime || maxATime <= minATime)
                         JOptionPane.showMessageDialog(null, "Ati introdus gresit max arrival time");
 
 
-                    SimulationManager gen=new SimulationManager(noua,limitTime,maxSTime,minSTime,noServers,noClients,minATime,maxATime,SelectionPolicy.SHORTEST_TIME);
-                    Thread t= new Thread(gen);
-                    t.start();
+                    if(maxATime!=2147483647&&minATime!=2147483647&&maxSTime!=2147483647&&minSTime!=2147483647&&limitTime!=2147483647&&noClients!=2147483647&&noServers!=2147483647&&maxSTime <= limitTime&&maxATime <= limitTime&&maxATime >= minATime&&maxSTime >= minSTime) {
+                        SimulationManager gen = new SimulationManager(noua, limitTime, maxSTime, minSTime, noServers, noClients, minATime, maxATime, SelectionPolicy.SHORTEST_TIME);
+                        Thread t = new Thread(gen);
+                        t.start();
+                    }
                 }
 
             }
