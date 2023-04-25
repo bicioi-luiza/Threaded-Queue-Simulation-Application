@@ -151,7 +151,8 @@ public class SimulationManager implements Runnable {
             txt += "Average waiting time:" + round(avgWaitingTime * 100) / 100.0 + "\n";
             txt += "Average service time:" + (avgServiceTime / (numberOfClients)) + "\n";
             txt += "Peek hour: " + peekHour + " existand " + maxClienti + " clienti";
-            file.write("Average waiting time:" + round(avgWaitingTime * 100) / 100.0 + "\n"+"Average service time:" + (avgServiceTime / (numberOfClients)) + "\n"+"Peek hour: " + peekHour + " existand " + maxClienti + " clienti");
+            file.write(txt+"\n");
+            //file.write("Average waiting time:" + round(avgWaitingTime * 100) / 100.0 + "\n"+"Average service time:" + (avgServiceTime / (numberOfClients)) + "\n"+"Peek hour: " + peekHour + " existand " + maxClienti + " clienti");
             file.close();
             frame.setTextArea(txt);
         } catch (IOException e) {
